@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">  
+</head>
+<style type="text/css">
+    
+    table{
+        table-layout:fixed;
+        width:100%;
+    }
+    table.dataframe, .dataframe th, .dataframe td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        table-layout:fixed;
+        border: solid;
+        width: 100%!important;
+        border-bottom: 1px solid #C8C8C8;
+        border-collapse: collapse;
+        text-align:left;
+        padding: 10px;
+        margin-bottom: 40px;
+        font-size: 0.9em;
+}
+    .dataframe th{
+
+        border: solid;
+    }
+
+    .dataframe td{
+        border: solid;
+    }
+</style>
+    
+<body style="height: 100vh; display: flex;flex-direction: column;">
+
+    <header style="position: relative;top: 0px;width: 100%;display: flex;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%;justify-content: center;">
+            <div class="jumbotron text-center" style="align-content: center;">
+                <h1 style="padding:10px;color: white;">  Upload/Transpose a CSV file   </h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class = "container-fluid flex-fill" ><br>
+        <div id= 'card' class="card border-dark mb-3" style="margin-bottom: 10px;margin-top:10px;">
+            <h4 class="card-title" style="color: black; justify-content: safe left;margin-left: 10px">Transpose a File</h4>
+            <p class="card-text" style="margin-left: 20px">&emsp; 1) Choose a CSV file to be uploaded</p>
+            <p class="card-text" style="margin-left: 20px">&emsp; 2) After Clicking on the Transpose button, Select parameters to invert rows and columns of your CSV</p>
+            <p class="card-text" style="margin-left: 20px">&emsp; 3) Download your new transposed file</p>
+            
+        </div><br>
+
+            <a href="{{ url_for('index') }}"><- Home</a>
+
+
+        <div id='alert' class="container" style="align-content: center;border-style: solid;margin-bottom: 50px;">
+            <div style="text-align: center;">
+                <form name="form-3" method=post><br>
+                    <button id="submit-3" type="submit" class="btn btn-success" name="download">Download</button>
+                </form>
+            </div>
+            <h5 class=""> <b><u>Your Transposed CSV</u>:<b></h5>
+            <div style="align-content: center;"> 
+                {% for table in tables %}
+                    
+                    {{ table|safe }}
+                {% endfor %}
+            </div>
+        </div>
+        
+    </main><br>
+
+     <footer class="footer" style="position: relative;bottom: 0;width: 100%;background-color: #34495E;color: white;">
+        <p style="text-align: center;padding-top: 10px;">Made By : &emsp;Adhiraj Sen&emsp;|&emsp;<a href = "mailto: adhiraj.msm@gmail.com" target="_blank" style="color: #AED6F1;">adhiraj.msm@gmail.com</a></p>
+        <p style="text-align: center;">Powered By : &emsp;<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"style="color: #AED6F1;">Flask</a>  &nbsp;|&nbsp;  <a href="https://www.python.org" target="_blank"style="color: #AED6F1;">Python</a>  &nbsp;|&nbsp;  <a href="https://getbootstrap.com" target="_blank"style="color: #AED6F1;">Bootstrap</a>  &nbsp;|&nbsp;  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"style="color: #AED6F1;">HTML</a></p>
+    </footer>
+ 
+</body>
+</html>

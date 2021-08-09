@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+</head>
+    
+<body style="height: 100vh; display: flex;flex-direction: column;position: relative;">
+
+    <header style="top: 0px;width: 100%;display: flex;position: relative;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="width: 100%;justify-content: center;">
+            <div class="jumbotron text-center" style="align-content: center;">
+                <h1 style="padding:10px;color: white;">  Upload/Transpose a CSV file   </h1>
+            </div>
+        </nav>
+    </header>
+
+     <main class = "container-fluid flex-fill" style="padding-bottom: 50px;"><br>
+
+        <div id= 'card' class="card border-dark mb-3" style="margin-bottom: 10px;margin-top:10px;">
+            <h4 class="card-title" style="color: black; justify-content: safe left;margin-left: 10px;margin-top: 5px;">Transpose a File</h4>
+            <p class="card-text" style="margin-left: 20px">&emsp; 1) Choose a CSV file to be uploaded</p>
+            <p class="card-text" style="margin-left: 20px">&emsp; 2) After Clicking on the Transpose button, Select parameters to invert rows and columns of your CSV</p>
+            <p class="card-text" style="margin-left: 20px">&emsp; 3) Download your new transposed file</p>
+            
+        </div><br>
+        <div id='alert' class="container" style="align-content: center;border-style: solid;">
+
+            <div style="padding-top: 10px; text-align: center;">
+                
+                {% if message == 'Please Upload a CSV or XLSX file' %}
+                    <p class="badge bg-info">{{ message }}</p>
+                {% endif %}
+                {% if message == 'No File Uploaded, Upload a CSV or XLSX file' %}
+                    <p class="badge bg-danger">{{ message }}</p>
+                {% endif %}
+            </div>
+            <div style="display: flex;justify-content: center;padding-bottom:15px">
+
+                <form name="form-1" method=post enctype=multipart/form-data>
+                    <input type=file name="doc_file" accept=".csv, .xlsx">
+                    <input type="hidden" name= "btn_id" value="csv"> </input>
+                    <button type="submit" class="btn btn-outline-info">Upload</button>              
+                </form>
+
+            </div> 
+        </div>
+    </main>
+
+    <footer class="footer" style="position: relative;bottom: 0;width: 100%;background-color: #34495E;color: white;">
+        <p style="text-align: center;padding-top: 10px;">Made By : &emsp;Adhiraj Sen&emsp;|&emsp;<a href = "mailto: adhiraj.msm@gmail.com" target="_blank" style="color: #AED6F1;">adhiraj.msm@gmail.com</a></p>
+        <p style="text-align: center;">Powered By : &emsp;<a href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank"style="color: #AED6F1;">Flask</a>  &nbsp;|&nbsp;  <a href="https://www.python.org" target="_blank"style="color: #AED6F1;">Python</a>  &nbsp;|&nbsp;  <a href="https://getbootstrap.com" target="_blank"style="color: #AED6F1;">Bootstrap</a>  &nbsp;|&nbsp;  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"style="color: #AED6F1;">HTML</a></p>
+    </footer>
+ 
+</body>
+</html>
