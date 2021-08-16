@@ -1,6 +1,6 @@
 Mac OS (Termnial):
 
-0) cd /~./"path to project root directory"  Example: cd /~./Downloads/flow_api
+0) cd ~./"path to project root directory"  Example: cd ~./Downloads/flow_api
 
 1) Activate virtual environment: 
 
